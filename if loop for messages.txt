@@ -1,0 +1,5 @@
+<!--{% if message %}-->
+
+<!--{% else %}-->
+	<!--<div>There are no messages in the bin.</div>-->
+<!--{% endif %}-->

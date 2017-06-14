@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Message{% endblock title %}
+
+{% block content %}
+
+        <div class="page-content">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="sidebar content-box" style="display: block;">
+                        <ul class="nav">
+                            <!-- Main menu -->
+                            <li><a href="/"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                            <li><a href="/newmessage"><i class="glyphicon glyphicon-pencil"></i> New Message</a></li>
+                            <li><a href="/inbox"><i class="glyphicon glyphicon-envelope"></i> Inbox</a></li>
+                            <li><a href="/sentmessages"><i class="glyphicon glyphicon-send"></i> Sent</a></li>
+                            <li><a href="/deletedmessages"><i class="glyphicon glyphicon-trash"></i> Deleted Messages</a></li>
+                            <li><a href="/calendar"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
+                            <li><a href="/weather"><i class="glyphicon glyphicon-cloud"></i> Weather</a></li>
+                            <li><a href="{{ logout_url}}"><i class="glyphicon glyphicon-user"></i> Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content-box-header">
+                                <div class="panel-title">Message</div>
+                            </div>
+                            <div class="content-box-large box-with-header">
+                                <div class="panel-body">
+                                    <div class="col-sm-8">
+                                        <a class="btn btn-default" href="/inbox">Back</a>
+                                        <br>
+                                        <br>
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>From:</strong> {{ message.sender_name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Subject:</strong> {{ message.subject }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Date:</strong> {{ message.date.strftime('%d. %m. %Y, %H:%M') }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-justify">{{ message.message }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <br>
+                                                        <form action="/inbox/{{ message.key.id() }}/delete" method="post">
+                                                        <button class="btn btn-default" type="submit">Delete</button>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock content %}

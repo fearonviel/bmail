@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>{% block title %}{% endblock title %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- jQuery UI -->
+        <link href="https://code.jquery.com/ui/1.10.3/themes/redmond/jquery-ui.css" rel="stylesheet" media="screen">
+
+        <!-- Bootstrap -->
+        <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
+
+        <!-- styles -->
+        <link href="/assets/css/styles.css" rel="stylesheet">
+        <link href="/assets/css/calendar.css" rel="stylesheet">
+        <link href="/assets/css/buttons.css" rel="stylesheet">
+
+        <!-- fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="header">
+             <div class="container">
+                <div class="row">
+                   <div class="col-md-5">
+                      <!-- Logo -->
+                      <div class="logo">
+                         <h1><a href="/">Bmail</a></h1>
+                      </div>
+                   </div>
+                   <div class="col-md-7">
+                      <div class="row">
+                          <div class="col-lg-4 col-lg-offset-3">
+                              <div class="greeting">
+                                  {% if logged_in %}
+                                    <h3>Hi, {{ user.nickname() }}</h3>
+                                  {% endif %}
+                              </div>
+                          </div>
+                        <div class="col-lg-5">
+                          <div class="input-group form">
+                               <input type="text" class="form-control" placeholder="Search...">
+                               <span class="input-group-btn">
+                                 <button class="btn btn-primary" type="button">Search</button>
+                               </span>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+        </div>
+
+        {% block content %}{% endblock content %}
+
+        <footer>
+             <div class="container my-footer">
+
+                <div class="copy text-center">
+                   Copyright 2017 <a href='#'>Bmail</a>
+                </div>
+
+             </div>
+          </footer>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- jQuery UI -->
+        <script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/custom.js"></script>
+        <script src="/assets/vendors/fullcalendar/fullcalendar.js"></script>
+        <script src="/assets/vendors/fullcalendar/gcal.js"></script>
+        <script src="/assets/js/tables.js"></script>
+        <script src="/assets/js/calendar.js"></script>
+
+    </body>
+</html>
